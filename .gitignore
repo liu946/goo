@@ -1,0 +1,7 @@
+
+# idea
+.idea
+cmake-build-debug
+build
+
+test_project
