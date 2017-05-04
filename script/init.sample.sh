@@ -4,5 +4,12 @@ if [ -f ./goo.json ]; then
     echo 'goo.json already exist.'
     exit
 fi
-echo '{"command":{"test": "echo no testing script"}}' | jq --raw-output  '.' > goo.json
+dir=$(pwd)
+dir=${dir##*/}
+read -p "Enter project name($dir):" project_name
+if [[ ${project_name}x == ''x ]]; then
+	project_name=${dir}
+fi
+
+echo '{"name":"'$project_name'", "command":{"test": "echo no testing script"}}' | jq --raw-output  '.' > goo.json
 

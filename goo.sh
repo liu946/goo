@@ -32,6 +32,7 @@ while [ ! -f './goo.json' ]; do
     fi
 done
 PROJECT_ROOT=$(pwd)
+PROJECT_NAME=$(cat goo.json | jq --raw-output '.name')
 
 # 2.
 #
