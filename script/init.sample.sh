@@ -11,5 +11,8 @@ if [[ ${project_name}x == ''x ]]; then
 	project_name=${dir}
 fi
 
-echo '{"name":"'$project_name'", "command":{"test": "echo no testing script"}}' | jq --raw-output  '.' > goo.json
+if [[ ! -d ./script ]]; then
+    mkdir script
+fi
 
+echo '{"name":"'$project_name'", "command":{"test": "echo no testing script"}}' | jq --raw-output  '.' > goo.json
