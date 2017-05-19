@@ -55,7 +55,9 @@ function print_usage () {
 	echo "	script command:"
 	for cmd in $(ls ./script/)
 	do
-		echo "		"${cmd%%.sh}
+		if [[ -f "./script/${cmd}" ]]; then
+		    echo "		"${cmd%%.sh}
+		fi
 	done
 }
 
