@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
+# check if jq is installed
+
+jq --version > /dev/null
+if [[ $? != 0 ]]; then
+	echo "[ERROR] jq is required. you can run \`sudo apt-get install jq\` to fix this."
+	exit 1
+fi
+
+# install goo
+
 mkdir -p ~/.goo
 mkdir -p ~/.goo/script
 
