@@ -8,7 +8,7 @@
 CALL_PATH=$(pwd)
 # 1. check run global cmd
 if [ ! -f ~/.goo/goo.json ]; then
-	echo 'no goo install on this computer.'
+	echo 'no goo installed on this computer.'
 	exit
 fi
 
@@ -19,7 +19,7 @@ fi
 
 # 2.
 #
-# cd to project root (with goo.json)
+# check project root (with goo.json)
 #
 
 now_dir=$(pwd)
@@ -59,6 +59,10 @@ function print_usage () {
 		    echo "		"${cmd%%.sh}
 		fi
 	done
+	echo "	script injected Varibles:"
+	echo "		CALL_PATH=${CALL_PATH}"
+	echo "		PROJECT_ROOT=${PROJECT_ROOT}"
+	echo "		PROJECT_NAME=${PROJECT_NAME}"
 }
 
 if [[ $( cat goo.json | jq '. | has("command")' ) == 'true' \
