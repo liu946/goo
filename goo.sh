@@ -34,7 +34,16 @@ done
 PROJECT_ROOT=$(pwd)
 PROJECT_NAME=$(cat goo.json | jq --raw-output '.name')
 
-# 2.
+# 3.
+#
+# load .env file if exist
+#
+
+if [ -f '.env' ]; do
+	source ./env
+done
+
+# 4.
 #
 # read goo.json
 #
